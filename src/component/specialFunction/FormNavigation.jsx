@@ -22,7 +22,7 @@ const FormNavigation = ({
   };
 
   return (
-    <div className="flex w-full justify-between items-center gap-4 mt-5 pt-8 border-t border-slate-100">
+    <div className="flex w-full justify-between items-center gap-4  pt-8 border-t border-slate-100">
       
       {/* Back Button */}
       <div className="flex-1">

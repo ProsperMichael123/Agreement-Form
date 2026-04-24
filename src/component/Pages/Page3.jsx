@@ -29,7 +29,7 @@ const Page3 = ({ onNext, onPrev }) => {
       
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200">
         
-        <main className="p-5 md:p-12 lg:p-16 text-start">
+        <main className="p-4 md:p-12 lg:p-16 text-start">
           
           <ScrollReveal>
             <h3 className="text-xl md:text-2xl font-black mb-8 border-l-4 border-orange-500 pl-6 text-start ">
@@ -173,17 +173,22 @@ const Page3 = ({ onNext, onPrev }) => {
                   <div className="w-1.5 h-6 rounded-full bg-blue-500 mt-1" />
                   <p><strong>Confirmation:</strong> I confirm that all instructions and information provided are accurate and complete to the best of my knowledge.</p>
                 </div>
+                <div className="flex gap-5 items-start">
+                  <div className="w-1.5 h-6 rounded-full bg-blue-500 mt-1" />
+                  <p><strong>WhatsApp Group Consent:</strong>I consent to being added to</p>
+                </div>
+                
               </div>
 
               <div className="mt-12 bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100">
                 <div className="grid md:grid-cols-2 gap-12">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-blue-600 font-bold uppercase text-[10px] md:text-xs"><UserCheck className="w-5 h-5" /> Client Role</div>
-                    <p className="text-[12px] md:text-sm leading-relaxed text-slate-500 italic">I understand that suppliers marketing in the group are verified by Swift Recov. I understand that orders placed directly with suppliers are private transactions between me and the supplier.</p>
+                    <p className="text-[12px] md:text-sm leading-relaxed text-slate-500 italic">I understand that suppliers marketing in the group are verified by Swift Recov. I understand that orders placed directly with suppliers are private transactions between me and the supplier.Swift Recov will only be involved when i specifically request and for recovery,verification,or escort services</p>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-emerald-600 font-bold uppercase text-[10px] md:text-xs"><UserCheck className="w-5 h-5" /> Supplier Role</div>
-                    <p className="text-[12px] md:text-sm leading-relaxed text-slate-500 italic">I understand I must be verified to market in the group. I agree to the once-per-week rule and the 20 maximum products per marketing session.</p>
+                    <p className="text-[12px] md:text-sm leading-relaxed text-slate-500 italic">I understand I must be verified to market in the group. I agree to the once-per-week rule on any day of my choice,and the 1 mininum to 20 maximum products per marketing session. I understand Swift Recov only intervenes in my sales when requested and paid for the eithier party</p>
                   </div>
                 </div>
               </div>
@@ -191,7 +196,7 @@ const Page3 = ({ onNext, onPrev }) => {
               <div className="mt-10 flex flex-col items-center md:items-start">
                 <label className="flex items-center mb-10 gap-4 cursor-pointer group p-4 rounded-xl hover:bg-blue-50 transition-colors">
                   <input type="checkbox" className="w-6 h-6 accent-[#1A2B42] cursor-pointer" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} />
-                  <span className="text-sm md:text-base font-bold text-slate-700 group-hover:text-blue-600 transition-colors">I agree to the terms and conditions</span>
+                  <span className="text-sm md:text-base font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">I agree to the terms and conditions</span>
                 </label>
                 <div className="w-full">
                   <FormNavigation onNext={onNext} onPrev={onPrev} isNextDisabled={!agreed} />
@@ -201,9 +206,10 @@ const Page3 = ({ onNext, onPrev }) => {
           </section>
         </main>
 
-        <div className="pb-12 text-center px-4">
-          <p className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-[0.2em]">
-            © 2026 Swift Recov. All rights reserved. <span className="mx-3 opacity-30">|</span> Lagos, Nigeria.
+         <div className="my-6 text-center">
+          <p className="text-xs md:text-sm text-slate-400 font-medium">
+            © 2026 Swift Recov. All rights reserved.
+            <span className="block md:inline"> Lagos, Nigeria.</span>
           </p>
         </div>
       </div>

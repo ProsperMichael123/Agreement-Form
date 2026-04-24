@@ -1,15 +1,15 @@
 import React from 'react';
 import FormNavigation from '../specialFunction/FormNavigation';
 import Header from '../specialFunction/Header';
-import ScrollReveal from '../specialFunction/ScrollReveal'; 
-import { 
-  CreditCard, 
-  Receipt, 
-  ShieldAlert, 
-  Navigation, 
-  Truck, 
-  CalendarClock, 
-  CheckCircle, 
+import ScrollReveal from '../specialFunction/ScrollReveal';
+import {
+  CreditCard,
+  Receipt,
+  ShieldAlert,
+  Navigation,
+  Truck,
+  CalendarClock,
+  CheckCircle,
   Building2,
   Copy,
   Info,
@@ -20,50 +20,71 @@ import {
 const Page2 = ({ onNext, onPrev }) => {
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-sans text-slate-800 p-3 md:p-8 pt-20 md:pt-24">
-      
-      <Header/>
+
+      <Header />
 
       {/* Container window */}
       <div className="max-w-2xl md:max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-        
+
         <main className="p-4 md:p-10 lg:p-14 text-start">
-          
-          {/* High Priority Intervention Section (Police Tracking) */}
-          <ScrollReveal>
-            <div className="rounded-3xl p-6 md:p-12 lg:p-16 text-white mb-8 relative overflow-hidden bg-white border border-slate-100">
-              <div className="relative z-10 flex flex-col lg:flex-row gap-12 items-start text-black">
-                <div className="flex-1">
-                  <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-600 px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 border border-red-500/20">
-                    <ShieldAlert className="w-3 h-3 md:w-4 md:h-4" />
-                    Police Intervention Protocol
+
+          {/* Delivery & Payment Schedule Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 items-stretch">
+
+            {/* LEFT CARD - Delivery */}
+            <ScrollReveal delay={0.2}>
+              <div className="h-full flex flex-col">
+                <h4 className="font-bold flex items-center gap-2 text-[#1A2B42] mb-4 ml-2 md:text-xl">
+                  <div className="p-1.5 md:p-2 bg-orange-100 rounded-lg">
+                    <Truck className="w-4 h-4 md:w-5 md:h-5 text-orange-600" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 text-[#1A2B42]">Police Tracking</h3>
-                  <p className="text-slate-700 text-sm md:text-lg leading-relaxed mb-8">
-                    Tracking is the process of locating the exact place/address of the person that scammed you or tracing the supplier to retrieve money paid by you. Any tracking activity that involves police intervention is charged at ₦100,000 per tracking session.
-                  </p>
-                  <div className="flex items-start gap-4 bg-blue-50/50 p-5 md:p-8 rounded-2xl border border-blue-100">
-                    <Navigation className="w-5 h-5 md:w-6 md:h-6 text-blue-600 shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-bold text-sm md:text-lg text-[#1A2B42] mb-1 uppercase">Other Logistics for Police</h4>
-                      <p className="text-xs md:text-base text-slate-600 leading-relaxed">
-                        All other logistics, operational costs, fueling, mobilization, and third-party charges incurred during police tracking will be paid by the subscriber in addition to the ₦100,000 tracking fee.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="w-full lg:w-80 bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-800 shadow-2xl text-white">
-                  <p className="text-xs md:text-sm font-bold text-blue-400 uppercase mb-4 tracking-widest">Tracking Session Cost</p>
-                  <div className="text-xl md:text-xl font-black mb-2 tracking-tight text-white">₦100,000</div>
-                  <p className="text-[10px] md:text-xs text-slate-400 leading-tight italic mt-4">
-                    *Excluding additional mobilization and fueling costs as stated.
-                  </p>
+                  DELIVERY CHARGES
+                </h4>
+
+                <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200/60 flex-1">
+                  <ul className="space-y-5 text-sm md:text-base text-slate-600">
+                    <li className="flex gap-4">
+                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center text-[10px] md:text-xs text-white">1</div>
+                      <p className="leading-relaxed">Delivery fees within Lagos or to any movement location will be determined directly between the client/supplier and the assigned agent.</p>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center text-[10px] md:text-xs text-white">2</div>
+                      <p className="leading-relaxed">All delivery payments are to be made by the customer/buyer.</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              {/* Background Decorative Element */}
-              <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-blue-500/5 rounded-full -mr-32 -mt-32 md:-mr-48 md:-mt-48 blur-3xl"></div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+
+            {/* RIGHT CARD - Rules */}
+            <ScrollReveal delay={0.4}>
+              <div className="h-full flex flex-col">
+                <h4 className="font-bold flex items-center gap-2 text-[#1A2B42] mb-4 ml-2 md:text-xl">
+                  <div className="p-1.5 md:p-2 bg-blue-100 rounded-lg">
+                    <Info className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
+                  </div>
+                  PAYMENT SCHEDULE & RULES
+                </h4>
+
+                <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200/60 flex-1">
+                  <p className="text-sm md:text-base text-slate-600 mb-6 leading-relaxed">
+                    <strong>Payment Schedule:</strong> Fees for agreement signing, supplier verification, police tracking, and daily services are due before commencement of work unless otherwise agreed in writing.
+                  </p>
+                  <p className="text-sm md:text-base text-slate-600 mb-6 leading-relaxed">
+                    <strong>Payment Account</strong> All payments must be made to the company's designated account below:
+                  </p>
+
+                  <div className="flex items-start gap-4 bg-white p-4 md:p-6 rounded-2xl border border-orange-100 shadow-sm">
+                    <ShieldAlert className="w-5 h-5 md:w-6 md:h-6 text-orange-600 shrink-0 mt-0.5" />
+                    <p className="text-xs md:text-sm font-bold text-slate-700 leading-normal">
+                      <strong>Payment Confirmation:</strong> Subscriber must always send payment receipt for confirmation before service begins.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
 
           {/* Payment Account Details */}
           <ScrollReveal delay={0.3}>
@@ -80,7 +101,7 @@ const Page2 = ({ onNext, onPrev }) => {
                       <div className="w-8 h-5 md:w-10 md:h-6 bg-orange-400/40 rounded-sm"></div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-1 mb-10">
                     <p className="text-[8px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Account Name</p>
                     <p className="text-xl md:text-2xl font-bold tracking-tight">Nwankwo Regina Afi</p>
@@ -112,7 +133,7 @@ const Page2 = ({ onNext, onPrev }) => {
                 </h2>
               </div>
             </ScrollReveal>
-          
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <ScrollReveal delay={0.1}>
@@ -126,15 +147,15 @@ const Page2 = ({ onNext, onPrev }) => {
                         <strong className="text-[#1A2B42]">Verified Suppliers Only:</strong> Only suppliers who have paid the Supplier Verification Fee and been approved by Swift Recov will be allowed to market goods in the group.
                       </p>
                       <p className="text-sm md:text-base text-slate-700 leading-relaxed">
-                        <strong className="text-[#1A2B42]">Market Frequency:</strong> Once per week, on any day of their choice. No fixed day will be assigned by Swift Recov.
+                        <strong className="text-[#1A2B42]">Market Frequency:</strong> Each verified supplier is permitted to market in the whatsapp group once per week,on anyday of their choice.No fixed day will be assigned by Swift Recov.
                       </p>
                       <p className="text-sm md:text-base text-slate-700 leading-relaxed">
-                        <strong className="text-[#1A2B42]">Product Limit:</strong> Minimum of 1 product and a maximum of 10 to 20 products per marketing session. Posting above 20 products is prohibited.
+                        <strong className="text-[#1A2B42]">Product Limit:</strong>To prevent flooding the group, each supplier must post Minimum of 1 product and a maximum of 10 to 20 products per marketing session. Posting above 20 products is prohibited.
                       </p>
                     </div>
                   </div>
                 </ScrollReveal>
-                
+
                 <ScrollReveal delay={0.2}>
                   <div className="p-6 md:p-8 bg-[#1A2B42] rounded-2xl border border-slate-800 h-full">
                     <h4 className="text-xs md:text-sm font-bold text-slate-400 uppercase mb-4 tracking-widest">Communication</h4>
@@ -147,7 +168,7 @@ const Page2 = ({ onNext, onPrev }) => {
                   </div>
                 </ScrollReveal>
               </div>
-          
+
               <div className="flex flex-col gap-6">
                 <ScrollReveal delay={0.4}>
                   <div className="p-8 bg-orange-50 rounded-2xl border border-orange-100 flex items-start gap-5 h-full">
@@ -159,14 +180,14 @@ const Page2 = ({ onNext, onPrev }) => {
                     </div>
                   </div>
                 </ScrollReveal>
-          
+
                 <ScrollReveal delay={0.5}>
                   <div className="flex gap-4 text-red-400 bg-slate-900 p-6 md:p-8 rounded-2xl border border-red-900/30">
                     <AlertTriangle className="w-6 h-6 shrink-0" />
                     <div>
-                       <h4 className="text-xs font-bold text-slate-500 uppercase mb-1 tracking-widest">Code of Conduct</h4>
-                       <p className="text-sm md:text-base leading-relaxed">
-                        <strong>Conduct:</strong> No spamming, unsolicited DMs, or unapproved suppliers. Violators will be removed and banned without refund.
+                      
+                      <p className="text-sm md:text-base leading-relaxed">
+                        <strong>Group Conduct:</strong> No spamming, unsolicited DMs, or unapproved suppliers. Violators will be removed and banned from the group.
                       </p>
                     </div>
                   </div>
@@ -176,16 +197,16 @@ const Page2 = ({ onNext, onPrev }) => {
           </section>
 
           <ScrollReveal delay={0.6}>
-            <FormNavigation 
-              onPrev={onPrev} 
-              onNext={onNext} 
-              showPrev={true}        
-              isNextDisabled={false} 
+            <FormNavigation
+              onPrev={onPrev}
+              onNext={onNext}
+              showPrev={true}
+              isNextDisabled={false}
               nextLabel="Next"
             />
           </ScrollReveal>
         </main>
-        
+
         <div className="my-10 text-center">
           <p className="text-xs md:text-sm text-slate-400 font-medium">
             © 2026 Swift Recov. All rights reserved.

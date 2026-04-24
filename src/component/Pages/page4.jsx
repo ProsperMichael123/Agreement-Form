@@ -64,11 +64,16 @@ const Page4 = ({ onPrev }) => {
       });
 
       console.log("Saved to Firebase");
-      setShowSuccess(true);
+      
+      // Artificial 10 second delay as requested
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setShowSuccess(true);
+      }, 10000);
+
     } catch (error) {
       console.error("Error saving form:", error);
       alert("Failed to save agreement. Please check your connection.");
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -87,18 +92,18 @@ const Page4 = ({ onPrev }) => {
       
       {/* Success Modal Overlay */}
       {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
+
+      {/* Loading Overlay - Fixed to Middle of Screen */}
+      {isSubmitting && (
+        <div className="fixed inset-0 z-[100] bg-white/80 backdrop-blur-md flex flex-col items-center justify-center">
+          <Loader2 className="w-16 h-16 text-[#1A2B42] animate-spin mb-4" />
+          <p className="font-black text-[#1A2B42] animate-pulse text-xl tracking-widest uppercase">Processing Agreement</p>
+          <p className="text-sm text-slate-500 mt-2 font-medium">Securing your information, please hold on...</p>
+        </div>
+      )}
       
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200 text-start relative">
         
-        {/* Loading Overlay for the entire card */}
-        {isSubmitting && (
-          <div className="absolute inset-0 z-50 bg-white/60 backdrop-blur-sm flex flex-col items-center justify-center">
-            <Loader2 className="w-12 h-12 text-[#1A2B42] animate-spin mb-4" />
-            <p className="font-bold text-[#1A2B42] animate-pulse text-lg">Processing Agreement...</p>
-            <p className="text-xs text-slate-500 mt-2">Please wait while we secure your data.</p>
-          </div>
-        )}
-
         <form onSubmit={handleSubmit} className="p-4 md:p-16">
           
           <section className="mb-16">
@@ -112,7 +117,9 @@ const Page4 = ({ onPrev }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <ScrollReveal delay={0.1} className="space-y-2">
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Full Name</label>
+                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  Full Name <span className="text-red-500 text-lg">*</span>
+                </label>
                 <div className={`border-b-2 py-2 transition-colors ${errors.fullName ? 'border-red-500' : 'border-slate-200 focus-within:border-[#1A2B42]'}`}>
                   <input 
                     name="fullName"
@@ -126,7 +133,9 @@ const Page4 = ({ onPrev }) => {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2} className="space-y-2">
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Company/Business Name</label>
+                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  Company/Business Name <span className="text-red-500 text-lg">*</span>
+                </label>
                 <div className="border-b-2 border-slate-200 py-2 focus-within:border-[#1A2B42] transition-colors">
                   <div className="flex items-center gap-2">
                     <Building2 className="w-4 h-4 text-slate-300" />
@@ -144,7 +153,9 @@ const Page4 = ({ onPrev }) => {
 
               <ScrollReveal delay={0.3} className="md:col-span-2">
                 <div className={`space-y-4 bg-slate-50 p-6 rounded-2xl border ${errors.subscriberType ? 'border-red-300 shadow-md shadow-red-50' : 'border-slate-100'}`}>
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-2">Subscriber Type</label>
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-2">
+                    Subscriber Type <span className="text-red-500 text-lg">*</span>
+                  </label>
                   <div className="flex flex-wrap gap-8">
                     {['Client', 'Supplier', 'Both'].map((type) => (
                       <button
@@ -164,7 +175,9 @@ const Page4 = ({ onPrev }) => {
               </ScrollReveal>
 
               <ScrollReveal delay={0.4} className="md:col-span-2 space-y-2">
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Address</label>
+                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  Address <span className="text-red-500 text-lg">*</span>
+                </label>
                 <div className="border-b-2 border-slate-200 py-2 focus-within:border-[#1A2B42] transition-colors">
                   <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-slate-300" />
@@ -182,7 +195,9 @@ const Page4 = ({ onPrev }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 md:col-span-2 gap-10">
                 <ScrollReveal delay={0.5} className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Email/Phone</label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    Email/Phone <span className="text-red-500 text-lg">*</span>
+                  </label>
                   <div className="border-b-2 border-slate-200 py-2 focus-within:border-[#1A2B42] transition-colors">
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-slate-300" />
@@ -199,7 +214,9 @@ const Page4 = ({ onPrev }) => {
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.6} className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">WhatsApp Number</label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    WhatsApp Number <span className="text-red-500 text-lg">*</span>
+                  </label>
                   <div className="border-b-2 border-slate-200 py-2 focus-within:border-[#1A2B42] transition-colors">
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-slate-300" />
@@ -233,7 +250,9 @@ const Page4 = ({ onPrev }) => {
                     <div className="h-12 border-b-2 border-slate-400 relative flex items-end">
                        <span className="text-xs italic text-slate-400 mb-1">E-signature recorded on submission</span>
                     </div>
-                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Subscriber Signature</label>
+                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                      Subscriber Signature 
+                    </label>
                   </div>
 
                   <div className="space-y-2">
@@ -245,7 +264,9 @@ const Page4 = ({ onPrev }) => {
                       className={`w-full bg-transparent border-b outline-none py-1 text-sm font-bold uppercase ${errors.subscriberNamePrint ? 'border-red-500' : 'border-slate-300'}`}
                       placeholder="Type Name to Print"
                     />
-                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Subscriber Name (Print)</label>
+                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                      Subscriber Name (Print) <span className="text-red-500 text-xs">*</span>
+                    </label>
                   </div>
                 </div>
 
@@ -258,7 +279,9 @@ const Page4 = ({ onPrev }) => {
                       type="date"
                       className={`w-full bg-transparent border-b outline-none py-1 text-sm ${errors.date ? 'border-red-500' : 'border-slate-300'}`}
                     />
-                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Date</label>
+                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                      Date <span className="text-red-500 text-xs">*</span>
+                    </label>
                   </div>
 
                   <div className="space-y-2 pt-4">
@@ -306,8 +329,8 @@ const Page4 = ({ onPrev }) => {
           </ScrollReveal>
         </div>
         
-        <div className="pb-10 text-center">
-          <p className="text-xs text-slate-400 font-medium">
+         <div className="my-6 text-center">
+          <p className="text-xs md:text-sm text-slate-400 font-medium">
             © 2026 Swift Recov. All rights reserved.
             <span className="block md:inline"> Lagos, Nigeria.</span>
           </p>
